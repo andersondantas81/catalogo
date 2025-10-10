@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.gradient-navbar{
+  background: rgb(46,188,76);
+  background: linear-gradient(90deg, rgba(46,188,76,1) 19%, rgba(47,178,156,1) 72%, rgba(47,178,156,1) 82%);
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cursos - ESP/CE</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'esp-green': '#22c55e',
+            'esp-dark-green': '#16a34a'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <!-- Header Verde -->
+  <header class="bg-esp-green text-white py-8">
+    <div class="container mx-auto px-6">
+      <!-- Botão Voltar -->
+      <div class="mb-4">
+        <button id="back-button" class="flex items-center text-white hover:text-green-100 transition-colors">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+          Voltar ao catálogo
+        </button>
+      </div>
+      
+      <!-- Título dinâmico -->
+      <div class="text-center">
+        <h1 id="page-title" class="text-3xl font-bold mb-2">Cursos</h1>
+        <p id="page-subtitle" class="text-green-100">Cursos disponíveis</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="container mx-auto p-6">
+    <!-- Barra de Pesquisa -->
+    <div class="flex justify-center mb-6">
+      <div class="relative w-full max-w-2xl">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Buscar cursos por nome, categoria ou tipo..."
+          class="w-full px-4 py-3 pl-12 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-esp-green focus:border-esp-green"
+        />
+        <svg class="absolute left-4 top-3.5 h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Seção de Filtros -->
+    <div class="bg-white rounded-lg shadow-sm p-4 mb-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-2">ANO DE VIGÊNCIA</label>
+          <select id="year-filter" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-esp-green focus:border-esp-green">
+            <option value="2025">2025</option>
+            <option value="2024">2024</option>
+            <option value="2023">2023</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-2">ÁREA</label>
+          <select id="area-filter" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-esp-green focus:border-esp-green">
+            <option value="all">Todos</option>
+            <option value="gestao">Gestão</option>
+            <option value="assistencia">Assistência</option>
+            <option value="vigilancia">Vigilância</option>
+            <option value="humanizacao">Humanização</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-2">SETOR</label>
+          <select id="sector-filter" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-esp-green focus:border-esp-green">
+            <option value="all">Todos</option>
+            <option value="atencao-basica">Atenção Básica</option>
+            <option value="hospitalar">Hospitalar</option>
+            <option value="vigilancia">Vigilância</option>
+            <option value="gestao">Gestão</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grid de Cursos -->
+    <main id="course-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Os cards dos cursos serão inseridos aqui pelo JavaScript -->
+    </main>
+
+    <!-- Mensagem de carregamento -->
+    <div id="loading" class="text-center py-8 hidden">
+      <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-esp-green"></div>
+      <p class="mt-2 text-gray-600">Carregando cursos...</p>
+    </div>
+
+    <!-- Mensagem quando não há cursos -->
+    <div id="no-courses" class="text-center py-12 hidden">
+      <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.47.831-6.14 2.209"></path>
+      </svg>
+      <h3 class="mt-2 text-sm font-medium text-gray-900">Nenhum curso encontrado</h3>
+      <p class="mt-1 text-sm text-gray-500">Tente ajustar os filtros de busca.</p>
+    </div>
+  </div>
+
+  <script type="module" src="./course-detail-app.js"></script>
+</body>
+</html>

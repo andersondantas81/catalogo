@@ -1,0 +1,107 @@
+export const allCourses = [
+  // Tipos de Cursos como mostrado na imagem
+  {
+    id: "basico",
+    title: "Básico",
+    description: "Cursos introdutórios para desenvolvimento de competências fundamentais em saúde",
+    duration: "8-60h",
+    modality: "Presencial/EaD",
+    category: "Básico",
+    participants: 15,
+    startDate: "Várias datas",
+    location: "ESP/CE",
+    type: "Básico",
+    coursesCount: 15
+  },
+  {
+    id: "aperfeicoamento",
+    title: "Aperfeiçoamento",
+    description: "Cursos para aprimoramento de conhecimentos e habilidades específicas",
+    duration: "40-80h",
+    modality: "Presencial/EaD",
+    category: "Aperfeiçoamento",
+    participants: 12,
+    startDate: "Várias datas",
+    location: "ESP/CE",
+    type: "Aperfeiçoamento",
+    coursesCount: 12
+  },
+  {
+    id: "atualizacao",
+    title: "Atualização",
+    description: "Cursos para atualização em novas tecnologias e práticas em saúde",
+    duration: "20-40h",
+    modality: "Presencial/EaD",
+    category: "Atualização",
+    participants: 8,
+    startDate: "Várias datas",
+    location: "ESP/CE",
+    type: "Atualização",
+    coursesCount: 8
+  },
+  {
+    id: "especializacao",
+    title: "Especialização",
+    description: "Cursos de pós-graduação lato sensu para aprofundamento em áreas específicas",
+    duration: "360-400h",
+    modality: "Presencial",
+    category: "Especialização",
+    participants: 6,
+    startDate: "Várias datas",
+    location: "ESP/CE",
+    type: "Especialização",
+    coursesCount: 6
+  },
+  {
+    id: "residencia",
+    title: "Residências Saúde",
+    description: "Programas de residência multiprofissional e médica em saúde",
+    duration: "2 anos",
+    modality: "Presencial",
+    category: "Residência",
+    participants: 4,
+    startDate: "Março 2024",
+    location: "ESP/CE",
+    type: "Residência",
+    coursesCount: 4
+  },
+  {
+    id: "tecnico",
+    title: "Técnico",
+    description: "Cursos técnicos para formação de profissionais de nível médio",
+    duration: "800-1200h",
+    modality: "Presencial",
+    category: "Técnico",
+    participants: 10,
+    startDate: "Várias datas",
+    location: "ESP/CE",
+    type: "Técnico",
+    coursesCount: 10
+  },
+  {
+    id: "treinamento",
+    title: "Treinamentos de Habilidades",
+    description: "Treinamentos práticos para desenvolvimento de habilidades específicas",
+    duration: "4-16h",
+    modality: "Presencial",
+    category: "Treinamento",
+    participants: 20,
+    startDate: "Várias datas",
+    location: "ESP/CE",
+    type: "Treinamento",
+    coursesCount: 20
+  },
+  {
+    id: "simulacao",
+    title: "Centro de Simulação em Saúde",
+    description: "Cursos práticos com simulação realística para profissionais de saúde",
+    duration: "8-24h",
+    modality: "Presencial",
+    category: "Simulação",
+    participants: 14,
+    startDate: "Várias datas",
+    location: "ESP/CE",
+    type: "Simulação",
+    coursesCount: 14
+  }
+];

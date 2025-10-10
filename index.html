@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo de Cursos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'esp-green': '#22c55e',
+            'esp-dark-green': '#16a34a'
+          }
+        }
+      }
+    }
+  </script>
+  <!-- O Vite injetará o CSS do Tailwind aqui -->
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <!-- Header Verde -->
+  <header class="bg-esp-green text-white py-8">
+    <div class="container mx-auto text-center">
+      <h1 class="text-3xl font-bold mb-2">Catálogo de Cursos ESP/CE</h1>
+      <p class="text-green-100">Escola de Saúde Pública do Ceará - Educação Permanente em Saúde</p>
+    </div>
+  </header>
+
+  <div class="container mx-auto p-6">
+    <!-- Barra de Pesquisa usando componente -->
+    <div class="flex justify-center mb-8">
+      <div id="search-component-container" class="w-full max-w-2xl">
+        <!-- O componente de busca será renderizado aqui -->
+      </div>
+    </div>
+
+    <!-- Filtro por categoria (oculto mas mantido para funcionalidade) -->
+    <select id="category-filter" class="hidden">
+      <option value="all">Todas as Categorias</option>
+      <option value="basic">Básico</option>
+      <option value="specialization">Especialização</option>
+    </select>
+
+    <!-- Lista de Cursos -->
+    <main id="course-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Os cards dos cursos serão inseridos aqui pelo JavaScript -->
+    </main>
+  </div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

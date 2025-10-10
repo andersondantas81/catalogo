@@ -1,0 +1,12 @@
+{
+  "name": "catalogo",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "dev": "node app.js"
+  },
+  "keywords": [],
+  "author": "Anderson Dantas",
+  "license": "ISC",
+  "description": "Catálogo digital para os cursos da Escola de Saúde Pública do Ceará (ESP/CE)"
+}
