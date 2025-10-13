@@ -1,9 +1,11 @@
 {
   "name": "catalogo",
   "version": "1.0.0",
+  "type": "module",
   "main": "app.js",
   "scripts": {
-    "dev": "node app.js"
+    "dev": "npx http-server -p 3000 -o",
+    "start": "npx http-server -p 3000 -o"
   },
   "keywords": [],
   "author": "Anderson Dantas",

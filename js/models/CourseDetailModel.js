@@ -19,37 +19,70 @@ export class CourseDetailModel {
     return this.currentCourses;
   }
 
+  // Retorna todos os cursos de todos os tipos (para filtro "Todos")
+  getAllCoursesFromAllTypes() {
+    let allCourses = [];
+    
+    // Percorre todos os tipos e coleta todos os cursos
+    Object.keys(this.courses).forEach(type => {
+      const coursesOfType = this.courses[type] || [];
+      console.log(`📚 Tipo ${type}: ${coursesOfType.length} cursos`);
+      // Adiciona o tipo como propriedade para cada curso
+      const coursesWithType = coursesOfType.map(course => ({
+        ...course,
+        courseType: type
+      }));
+      allCourses = allCourses.concat(coursesWithType);
+    });
+    
+    console.log(`📊 Total de cursos de todos os tipos: ${allCourses.length}`);
+    return allCourses;
+  }
+
   // Filtra os cursos baseado nos critérios
   filterCourses(filters) {
-    let filtered = [...this.currentCourses];
+    console.log('🔍 Aplicando filtros:', filters);
+    
+    // Se o filtro de ano for "all", buscar em todos os tipos de cursos
+    let coursesToFilter = filters.year === 'all' 
+      ? this.getAllCoursesFromAllTypes()
+      : [...this.currentCourses];
+
+    console.log(`📋 Cursos antes dos filtros: ${coursesToFilter.length}`);
 
     // Filtro por texto de busca
     if (filters.search && filters.search.trim()) {
       const searchLower = filters.search.toLowerCase();
-      filtered = filtered.filter(course =>
+      coursesToFilter = coursesToFilter.filter(course =>
         course.title.toLowerCase().includes(searchLower) ||
         course.description.toLowerCase().includes(searchLower) ||
         course.category.toLowerCase().includes(searchLower)
       );
+      console.log(`📋 Após filtro de busca: ${coursesToFilter.length}`);
     }
 
     // Filtro por área
     if (filters.area && filters.area !== 'all') {
-      filtered = filtered.filter(course => course.area === filters.area);
+      coursesToFilter = coursesToFilter.filter(course => course.area === filters.area);
+      console.log(`📋 Após filtro de área: ${coursesToFilter.length}`);
     }
 
     // Filtro por setor
     if (filters.sector && filters.sector !== 'all') {
-      filtered = filtered.filter(course => course.sector === filters.sector);
+      coursesToFilter = coursesToFilter.filter(course => course.sector === filters.sector);
+      console.log(`📋 Após filtro de setor: ${coursesToFilter.length}`);
     }
 
-    // Filtro por ano (assumindo que todos os cursos são de 2024/2025)
-    if (filters.year && filters.year !== '2025') {
-      // Poderia filtrar por ano se os dados tivessem essa informação
-      // Por ora, mantemos todos os cursos
+    // Filtro por ano específico (quando não for "all")
+    if (filters.year && filters.year !== 'all' && filters.year !== '2025') {
+      // Aqui você pode implementar filtro por ano específico se os dados tiverem essa informação
+      // Por ora, se não for "all" nem "2025", não mostra nenhum curso
+      coursesToFilter = coursesToFilter.filter(course => course.year === filters.year);
+      console.log(`📋 Após filtro de ano específico: ${coursesToFilter.length}`);
     }
 
-    return filtered;
+    console.log(`✅ Total de cursos após filtros: ${coursesToFilter.length}`);
+    return coursesToFilter;
   }
 
   // Busca um curso específico pelo ID
