@@ -60,7 +60,7 @@ export class CourseDetailView {
 
   // Renderiza a lista de cursos específicos com paginação
   renderCourses(courses) {
-    console.log('Renderizando cursos específicos:', courses);
+    console.log('🎨 Renderizando cursos específicos:', courses.length);
     
     if (!this.courseListContainer) {
       console.error('Container de cursos não encontrado!');
@@ -84,6 +84,8 @@ export class CourseDetailView {
     const endIndex = startIndex + this.coursesPerPage;
     const coursesToShow = courses.slice(startIndex, endIndex);
 
+    console.log(`📄 Exibindo cursos ${startIndex + 1}-${Math.min(endIndex, courses.length)} de ${courses.length} (página ${this.currentPage})`);
+
     // Limpar container e renderizar cursos da página
     this.courseListContainer.innerHTML = '';
     coursesToShow.forEach(course => {
@@ -98,6 +100,8 @@ export class CourseDetailView {
     } else {
       this.hidePagination();
     }
+    
+    console.log(`✅ Renderização concluída: ${coursesToShow.length} cursos na página ${this.currentPage}`);
   }
 
   // Cria um card detalhado para um curso específico

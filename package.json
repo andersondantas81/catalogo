@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "npx http-server -p 3000 -o",
+    "dev:alt": "npx http-server -p 3001 -o",
     "start": "npx http-server -p 3000 -o"
   },
   "keywords": [],
